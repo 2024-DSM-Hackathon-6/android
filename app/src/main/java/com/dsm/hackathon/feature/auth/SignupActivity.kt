@@ -31,6 +31,12 @@ class SignupActivity : AppCompatActivity() {
                 signUp(id, pw)
             }
         }
+
+        binding.tvSignupLogin.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 
     private fun checkPw(pw: String, pwCheck: String): Boolean {
@@ -50,7 +56,7 @@ class SignupActivity : AppCompatActivity() {
                 } else {
                     Toast.makeText(this@SignupActivity, "회원가입에 실패하였습니다", Toast.LENGTH_SHORT).show()
                 }
-                val intent = Intent(this@SignupActivity, MainActivity::class.java) // TODO: LoginActivity로 수정
+                val intent = Intent(this@SignupActivity, LoginActivity::class.java)
                 startActivity(intent)
                 finish()
             }
