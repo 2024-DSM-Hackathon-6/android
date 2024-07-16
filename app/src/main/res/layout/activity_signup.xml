@@ -9,40 +9,32 @@
 
     <ImageView
         android:id="@+id/iv_signup_logo"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:scaleType="fitCenter"
-        android:src="@drawable/ic_launcher_background"
+        style="@style/start_iv_logo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="30dp"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintWidth_percent="0.89"
+        style="@style/start_lay"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/iv_signup_logo"
-        android:orientation="vertical"
-        android:layout_marginTop="8dp">
+        app:layout_constraintTop_toBottomOf="@id/iv_signup_logo">
 
         <TextView
             style="@style/start_input_text"
-            android:text="아이디"/>
+            android:text="@string/id"/>
         <com.google.android.material.textfield.TextInputLayout
             style="@style/start_input_lay">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_signup_id"
                 style="@style/start_input"
                 android:inputType="text"
-                android:hint="아이디를 입력하세요"/>
+                android:hint="@string/input_id"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             style="@style/start_input_text"
-            android:text="비밀번호"/>
+            android:text="@string/pw"/>
         <com.google.android.material.textfield.TextInputLayout
             style="@style/start_input_lay"
             app:passwordToggleEnabled="true">
@@ -50,12 +42,12 @@
                 android:id="@+id/edit_signup_pw"
                 style="@style/start_input"
                 android:inputType="textPassword"
-                android:hint="비밀번호를 입력하세요" />
+                android:hint="@string/input_pw" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
             style="@style/start_input_text"
-            android:text="비밀번호 확인"/>
+            android:text="@string/pw_check"/>
         <com.google.android.material.textfield.TextInputLayout
             style="@style/start_input_lay"
             app:passwordToggleEnabled="true">
@@ -63,7 +55,7 @@
                 android:id="@+id/edit_signup_pw_check"
                 style="@style/start_input"
                 android:inputType="textPassword"
-                android:hint="비밀번호를 다시 입력하세요"/>
+                android:hint="@string/input_pw_check"/>
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
@@ -71,7 +63,7 @@
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btn_signup"
         style="@style/btn"
-        android:text="회원가입"
+        android:text="@string/signup"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -84,13 +76,13 @@
         app:layout_constraintTop_toBottomOf="@id/btn_signup">
         <TextView
             style="@style/start_move_text"
-            android:text="이미 가입했다면,"
+            android:text="@string/already_signup"
             android:fontFamily="@font/notosanskr_light"/>
         <TextView
             android:id="@+id/tv_signup_login"
             style="@style/start_move_text"
             android:fontFamily="@font/notosanskr_bold"
-            android:text="  로그인"
+            android:text="@string/login"
             android:textColor="@color/main300"/>
     </LinearLayout>
 
