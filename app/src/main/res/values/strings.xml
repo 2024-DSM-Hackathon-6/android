@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">hackathon</string>
+
+    <string name="signup">회원가입</string>
+    <string name="login">로그인</string>
+    <string name="id">아이디</string>
+    <string name="pw">비밀번호</string>
+    <string name="input_id">아이디를 입력하세요</string>
+    <string name="input_pw">비밀번호를 입력하세요</string>
+
+    <string name="pw_check">비밀번호 확인</string>
+    <string name="input_pw_check">비밀번호를 다시 입력하세요</string>
+    <string name="already_signup">이미 가입했다면,&#160;&#160;</string>
+    <string name="not_signup">가입되어 있지 않다면,&#160;&#160;</string>
 </resources>
