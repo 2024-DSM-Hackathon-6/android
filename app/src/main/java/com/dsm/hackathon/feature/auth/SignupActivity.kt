@@ -9,6 +9,7 @@ import com.dsm.hackathon.feature.auth.model.SignupRequest
 import com.dsm.hackathon.feature.auth.model.SignupResponse
 import com.dsm.hackathon.network.ApiProvider
 import com.dsm.hackathon.network.AuthApi
+import com.dsm.hackathon.utill.userIdentifier
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -51,6 +52,7 @@ class SignupActivity : AppCompatActivity() {
         apiProvider.signup(SignupRequest(id, pw)).enqueue(object : Callback<SignupResponse> {
             override fun onResponse(call: Call<SignupResponse>, response: Response<SignupResponse>) {
                 if (response.isSuccessful) {
+                    userIdentifier = response.body()?.userIdentifier ?: ""
                     Toast.makeText(this@SignupActivity, "회원가입이 완료되었습니다", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(this@SignupActivity, "회원가입에 실패하였습니다", Toast.LENGTH_SHORT).show()

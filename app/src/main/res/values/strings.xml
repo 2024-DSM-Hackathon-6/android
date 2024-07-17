@@ -16,10 +16,16 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
     <string-array name="spinner_home">
-        <item>법률</item>
         <item>경제</item>
+        <item>법률</item>
         <item>예절</item>
     </string-array>
     <string name="request_modify">수정 요청</string>
     <string name="inquire">문의하기</string>
+
+    <string-array name="spinner_dictionary">
+        <item>금융</item>
+        <item>사회</item>
+        <item>공공</item>
+    </string-array>
 </resources>

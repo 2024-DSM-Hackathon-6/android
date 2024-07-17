@@ -10,6 +10,7 @@ import com.dsm.hackathon.feature.auth.model.LoginRequest
 import com.dsm.hackathon.feature.auth.model.LoginResponse
 import com.dsm.hackathon.network.ApiProvider
 import com.dsm.hackathon.network.AuthApi
+import com.dsm.hackathon.utill.userIdentifier
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -43,6 +44,8 @@ class LoginActivity : AppCompatActivity() {
         apiProvider.login(LoginRequest(id, pw)).enqueue(object : Callback<LoginResponse> {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 if (response.isSuccessful) {
+                    userIdentifier = response.body()?.userIdentifier ?: ""
+
                     val intent = Intent(this@LoginActivity, MainActivity::class.java)
                     startActivity(intent)
                     finish()

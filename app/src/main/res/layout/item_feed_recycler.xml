@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/shadow_background"
+    android:paddingStart="20dp"
+    android:paddingEnd="20dp">
+
+    <TextView
+        android:id="@+id/tv_feed_item_writer"
+        style="@style/text_feed_caption"
+        android:text="작성자"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="11dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_feed_item_title"
+        style="@style/recycler_item_title"
+        android:text="제목"
+        android:layout_marginTop="-24dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_feed_item_writer"/>
+
+    <TextView
+        android:id="@+id/tv_feed_item_content"
+        style="@style/recycler_item_content"
+        app:layout_constraintStart_toStartOf="@id/tv_feed_item_title"
+        app:layout_constraintTop_toBottomOf="@id/tv_feed_item_title"
+        android:text="내용"
+        android:paddingBottom="0dp"
+        android:layout_marginTop="-14dp"/>
+
+    <TextView
+        android:id="@+id/tv_feed_item_date"
+        style="@style/text_feed_caption"
+        android:text="2024-07-17"
+        android:paddingBottom="6dp"
+        android:layout_marginTop="-10dp"
+        android:layout_marginStart="2dp"
+        app:layout_constraintStart_toStartOf="@id/tv_feed_item_writer"
+        app:layout_constraintTop_toBottomOf="@id/tv_feed_item_content"/>
+
+    <LinearLayout
+        android:id="@+id/lay_feed_item_like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="3dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_feed_item_date">
+        <ImageView
+            android:id="@+id/iv_feed_item_like"
+            android:layout_width="18dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/like"
+            android:layout_gravity="center"/>
+        <TextView
+            android:id="@+id/tv_feed_item_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12"
+            android:fontFamily="@font/notosanskr_medium"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:layout_marginStart="4dp" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -37,13 +37,20 @@
         <item name="android:layout_height">1dp</item>
         <item name="android:background">@color/gray300</item>
     </style>
+    <style name="recycler">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+    </style>
 
     <style name="start_iv_logo">
-        <item name="android:layout_width">80dp</item>
-        <item name="android:layout_height">80dp</item>
+        <item name="android:layout_width">100dp</item>
+        <item name="android:layout_height">100dp</item>
         <item name="android:scaleType">fitCenter</item>
         <item name="android:layout_marginTop">30dp</item>
-        <item name="android:src">@drawable/ic_launcher_background</item>
+        <item name="android:src">@drawable/logo</item>
     </style>
     <style name="start_lay">
         <item name="android:layout_width">0dp</item>
@@ -103,7 +110,7 @@
     <style name="recycler_item_content" parent="caption4">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">@color/gray500</item>
+        <item name="android:textColor">@color/gray600</item>
         <item name="android:layout_marginTop">-8dp</item>
         <item name="android:paddingStart">12dp</item>
         <item name="android:paddingEnd">12dp</item>
@@ -160,5 +167,24 @@
         <item name="android:layout_marginTop">-6dp</item>
         <item name="android:textColor">@color/black</item>
         <item name="hintTextColor">@color/gray500</item>
+    </style>
+
+    <style name="text_feed_select">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/notosanskr_medium</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:paddingEnd">10dp</item>
+        <item name="android:paddingTop">1dp</item>
+        <item name="android:paddingBottom">1dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+    </style>
+    <style name="text_feed_caption" parent="caption4">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/gray500</item>
     </style>
 </resources>

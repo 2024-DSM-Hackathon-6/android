@@ -3,12 +3,12 @@ package com.dsm.hackathon.feature.home
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.Adapter
-import com.dsm.hackathon.databinding.ItemHomeRecyclerBinding
-import com.dsm.hackathon.feature.home.model.HomeData
+import com.dsm.hackathon.databinding.ItemHomeDicRecyclerBinding
+import com.dsm.hackathon.feature.home.model.InfoData
 
-class HomeAdapter(private val homeList: List<HomeData>, private val homeClickListener: HomeClickListener) : Adapter<HomeViewHolder>() {
+class HomeAdapter(private val homeList: List<InfoData>, private val homeClickListener: HomeClickListener) : Adapter<HomeViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
-        val binding = ItemHomeRecyclerBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemHomeDicRecyclerBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return HomeViewHolder(binding)
     }
 
@@ -21,6 +21,6 @@ class HomeAdapter(private val homeList: List<HomeData>, private val homeClickLis
     }
 
     interface HomeClickListener {
-        fun onHomeClicked(data: HomeData)
+        fun onHomeClicked(data: InfoData)
     }
 }

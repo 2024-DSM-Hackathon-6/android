@@ -36,7 +36,8 @@
             style="@style/start_input_text"
             android:text="@string/pw"/>
         <com.google.android.material.textfield.TextInputLayout
-            style="@style/start_input_lay">
+            style="@style/start_input_lay"
+            app:passwordToggleEnabled="true">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/edit_login_pw"
                 style="@style/start_input"

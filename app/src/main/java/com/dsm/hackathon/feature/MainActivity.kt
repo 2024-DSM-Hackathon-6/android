@@ -6,8 +6,9 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.dsm.hackathon.R
 import com.dsm.hackathon.databinding.ActivityMainBinding
+import com.dsm.hackathon.feature.dictionary.DictionaryFragment
+import com.dsm.hackathon.feature.feed.FeedFragment
 import com.dsm.hackathon.feature.home.HomeFragment
-import com.dsm.hackathon.feature.home.model.HomeData
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -16,23 +17,30 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setFrag(1)
-    }
+        setFrag(HomeFragment())
 
-    private fun setFrag(fragNum: Int): Boolean {
-        val ft = supportFragmentManager.beginTransaction()
-        when(fragNum) {
-            1 -> ft.replace(R.id.frame_main, HomeFragment()).commit()
+        binding.bottomNavigationMain.setOnItemSelectedListener { item ->
+            setFrag(
+                when (item.itemId) {
+                    R.id.menu_home -> HomeFragment()
+                    R.id.menu_dictionary -> DictionaryFragment()
+                    R.id.menu_notice -> FeedFragment()
+                    else -> HomeFragment()
+                }
+            )
+            true
         }
-        return true
     }
 
-    fun goDetailActivity(index: Int, id: Long, title: String, content: String) {
-        val intent = Intent(this@MainActivity, DetailActivity::class.java)
-        intent.putExtra("index", index)
-        intent.putExtra("id", id)
-        intent.putExtra("title", title)
-        intent.putExtra("content", content)
+    private fun setFrag(fragment: Fragment) {
+        supportFragmentManager.beginTransaction().replace(R.id.frame_main, fragment).commit()
+    }
+
+    fun goDetailActivity(index: Int, id: Long) {
+        val intent = Intent(this@MainActivity, DetailActivity::class.java).apply {
+            putExtra("index", index)
+            putExtra("id", id)
+        }
         startActivity(intent)
     }
 }

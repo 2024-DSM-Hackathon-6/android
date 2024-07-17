@@ -5,12 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.dsm.hackathon.R
-import com.dsm.hackathon.databinding.FragmentHomeBinding
 import com.dsm.hackathon.databinding.FragmentInquireBinding
-import com.dsm.hackathon.feature.home.model.HomeData
+import com.dsm.hackathon.feature.home.model.InfoData
 
-class InquireFragment(private val data: HomeData) : Fragment() {
+class InquireFragment(private val data: InfoData) : Fragment() {
     private lateinit var binding: FragmentInquireBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

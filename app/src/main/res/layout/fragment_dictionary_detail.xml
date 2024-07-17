@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".feature.dictionary.DictionaryDetailFragment">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tv_dic_detail_title"
+            style="@style/text_detail_title"
+            android:text="제목" />
+
+        <View style="@style/line"/>
+
+        <TextView
+            android:id="@+id/tv_dic_detail_content"
+            style="@style/text_detail_content"
+            android:text="내용"/>
+
+    </LinearLayout>
+</ScrollView>

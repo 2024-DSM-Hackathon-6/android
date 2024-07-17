@@ -6,9 +6,8 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.dsm.hackathon.R
 import com.dsm.hackathon.databinding.ActivityDetailBinding
+import com.dsm.hackathon.feature.dictionary.DictionaryDetailFragment
 import com.dsm.hackathon.feature.home.HomeDetailFragment
-import com.dsm.hackathon.feature.home.InquireFragment
-import com.dsm.hackathon.feature.home.model.HomeData
 
 class DetailActivity() : AppCompatActivity() {
     private lateinit var binding: ActivityDetailBinding
@@ -20,11 +19,10 @@ class DetailActivity() : AppCompatActivity() {
         val intent = Intent()
         val index = intent.getIntExtra("index", 0)
         val id = intent.getLongExtra("id", 0)
-        val title = intent.getStringExtra("title") ?: ""
-        val content = intent.getStringExtra("content") ?: ""
 
         when(index) {
-            1 -> setFrag(HomeDetailFragment(HomeData(id, title, content)))
+            1 -> setFrag(HomeDetailFragment(id))
+            2 -> setFrag(DictionaryDetailFragment(id))
         }
 
 
@@ -38,9 +36,5 @@ class DetailActivity() : AppCompatActivity() {
 
     fun setFrag(fragment: Fragment) {
         supportFragmentManager.beginTransaction().replace(R.id.frame_detail, fragment).commit()
-    }
-
-    fun activityFinish() {
-        finish()
     }
 }
