@@ -2,10 +2,15 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00000000</color>
 
+    <color name="main100">#5EF7E0</color>
     <color name="main300">#5ED1F7</color>
+    <color name="main400">#5EB3F7</color>
 
     <color name="gray300">#E5E5E5</color>
     <color name="gray400">#CCCCCC</color>
     <color name="gray500">#7F7F7F</color>
+
+    <color name="red">#EA2E33</color>
 </resources>

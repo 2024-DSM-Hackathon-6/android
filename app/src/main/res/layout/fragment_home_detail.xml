@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".feature.home.HomeDetailFragment">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/tv_home_detail_title"
+            style="@style/text_detail_title"
+            android:text="제목"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+        <ImageView
+            android:id="@+id/iv_home_detail_menu"
+            style="@style/iv_detail_menu"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/tv_home_detail_title"
+            app:layout_constraintBottom_toBottomOf="@id/tv_home_detail_title"/>
+        <View
+            style="@style/line"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_home_detail_title"/>
+
+        <TextView
+            android:id="@+id/tv_home_detail_content"
+            style="@style/text_detail_content"
+            android:text="내용"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_home_detail_title"/>
+
+        <LinearLayout
+            android:id="@+id/lay_home_detail_menu"
+            style="@style/lay_detail_menu"
+            app:layout_constraintEnd_toEndOf="@id/iv_home_detail_menu"
+            app:layout_constraintTop_toBottomOf="@id/iv_home_detail_menu">
+
+            <TextView
+                android:id="@+id/tv_home_detail_modify"
+                style="@style/text_detail_menu"
+                android:text="@string/request_modify"
+                android:textColor="@color/black"/>
+            <View
+                style="@style/line" />
+            <TextView
+                android:id="@+id/tv_home_detail_inquire"
+                style="@style/text_detail_menu"
+                android:text="@string/inquire"
+                android:textColor="@color/red"/>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

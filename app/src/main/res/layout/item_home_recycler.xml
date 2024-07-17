@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/shadow_background">
+
+    <TextView
+        android:id="@+id/tv_home_item_title"
+        style="@style/recycler_item_title"
+        android:text="제목"/>
+
+    <TextView
+        android:id="@+id/tv_home_item_content"
+        style="@style/recycler_item_content"
+        android:text="내용"/>
+</LinearLayout>
