@@ -12,4 +12,14 @@
     <string name="input_pw_check">비밀번호를 다시 입력하세요</string>
     <string name="already_signup">이미 가입했다면,&#160;&#160;</string>
     <string name="not_signup">가입되어 있지 않다면,&#160;&#160;</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string-array name="spinner_home">
+        <item>법률</item>
+        <item>경제</item>
+        <item>예절</item>
+    </string-array>
+    <string name="request_modify">수정 요청</string>
+    <string name="inquire">문의하기</string>
 </resources>

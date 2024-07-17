@@ -17,7 +17,16 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
+            android:name=".feature.DetailActivity"
+            android:exported="false" />
+        <activity
             android:name=".feature.auth.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".feature.auth.SignupActivity"
+            android:exported="false" />
+        <activity
+            android:name=".feature.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,12 +34,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".feature.auth.SignupActivity"
-            android:exported="false"/>
-        <activity
-            android:name=".MainActivity"
-            android:exported="false"/>
     </application>
 
 </manifest>

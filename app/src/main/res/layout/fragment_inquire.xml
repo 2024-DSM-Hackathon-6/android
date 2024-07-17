@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:padding="20dp"
+    tools:context=".feature.home.InquireFragment"
+    android:orientation="vertical">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cv_inquire"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:strokeWidth="1dp"
+        app:strokeColor="@color/main100"
+        android:elevation="20dp"
+        android:padding="10dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/tv_inquire_title"
+                style="@style/recycler_item_title"
+                android:text="제목"/>
+            <TextView
+                android:id="@+id/tv_inquire_content"
+                style="@style/recycler_item_content"
+                android:text="내용"/>
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <TextView
+        android:id="@+id/tv_inquire_label"
+        style="@style/start_input_text"
+        android:layout_marginTop="20dp"
+        android:text="문의 내용"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cv_inquire"/>
+
+    <EditText
+        android:id="@+id/edit_inquire"
+        style="@style/edit_content"
+        android:hint="문의 내용을 입력하세요"
+        app:layout_constraintStart_toStartOf="@id/tv_inquire_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_inquire_label"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_inquire"
+        style="@style/btn"
+        android:layout_width="match_parent"
+        android:layout_gravity="bottom"
+        android:text="문의하기"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

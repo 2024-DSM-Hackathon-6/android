@@ -1,8 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="head4">
+        <item name="android:fontFamily">@font/notosanskr_medium</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+    <style name="head5">
+        <item name="android:fontFamily">@font/notosanskr_medium</item>
+        <item name="android:textSize">20sp</item>
+    </style>
     <style name="body4">
         <item name="android:fontFamily">@font/notosanskr_regular</item>
         <item name="android:textSize">14sp</item>
+    </style>
+    <style name="caption1">
+        <item name="android:fontFamily">@font/notosanskr_medium</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="caption2">
+        <item name="android:fontFamily">@font/notosanskr_regular</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="caption4">
+        <item name="android:fontFamily">@font/notosanskr_regular</item>
+        <item name="android:textSize">12sp</item>
     </style>
     <style name="btn" parent="body4">
         <item name="android:layout_width">0dp</item>
@@ -11,6 +31,11 @@
         <item name="android:background">@drawable/btn_background</item>
         <item name="android:textColor">@color/white</item>
         <item name="android:layout_marginBottom">30dp</item>
+    </style>
+    <style name="line">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/gray300</item>
     </style>
 
     <style name="start_iv_logo">
@@ -51,5 +76,89 @@
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="bottom_navigation" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="labelVisibilityMode">labeled</item>
+        <item name="android:colorControlHighlight">@color/transparent</item>
+    </style>
+    <style name="main_title" parent="head4">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_marginStart">18dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+    </style>
+
+    <style name="recycler_item_title" parent="caption1">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:paddingTop">8dp</item>
+    </style>
+    <style name="recycler_item_content" parent="caption4">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/gray500</item>
+        <item name="android:layout_marginTop">-8dp</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="iv_detail_menu">
+        <item name="android:layout_width">8dp</item>
+        <item name="android:layout_height">26dp</item>
+        <item name="android:src">@drawable/detail_menu</item>
+        <item name="android:layout_marginEnd">18dp</item>
+    </style>
+    <style name="text_detail_title" parent="head5">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginEnd">30dp</item>
+    </style>
+    <style name="text_detail_content" parent="caption4">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:textSize">13sp</item>
+    </style>
+    <style name="lay_detail_menu">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/shadow_background</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:visibility">gone</item>
+    </style>
+    <style name="text_detail_menu" parent="caption2">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingStart">14dp</item>
+        <item name="android:paddingEnd">14dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+    
+    <style name="edit_content" parent="body4">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:minHeight">130dp</item>
+        <item name="android:inputType">textMultiLine</item>
+        <item name="android:background">@drawable/edit_background</item>
+        <item name="android:gravity">top</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:layout_marginTop">-6dp</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="hintTextColor">@color/gray500</item>
     </style>
 </resources>

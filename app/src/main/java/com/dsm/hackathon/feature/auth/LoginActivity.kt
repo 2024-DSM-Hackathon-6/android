@@ -4,8 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import com.dsm.hackathon.MainActivity
-import com.dsm.hackathon.R
+import com.dsm.hackathon.feature.MainActivity
 import com.dsm.hackathon.databinding.ActivityLoginBinding
 import com.dsm.hackathon.feature.auth.model.LoginRequest
 import com.dsm.hackathon.feature.auth.model.LoginResponse
@@ -14,7 +13,6 @@ import com.dsm.hackathon.network.AuthApi
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import kotlin.math.log
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
