@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".feature.feed.FeedDetailFragment"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/tv_feed_detail_writer"
+        style="@style/text_feed_caption"
+        android:text="작성자"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_feed_detail_date"
+        style="@style/text_feed_caption"
+        android:text="2024-07-17"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_feed_detail_writer"
+        app:layout_constraintBottom_toBottomOf="@id/tv_feed_detail_writer"/>
+
+    <TextView
+        android:id="@+id/tv_feed_detail_title"
+        style="@style/text_detail_title"
+        android:text="제목"
+        android:layout_marginTop="-16dp"
+        app:layout_constraintStart_toStartOf="@id/tv_feed_detail_writer"
+        app:layout_constraintTop_toBottomOf="@id/tv_feed_detail_writer"/>
+    <ImageView
+        android:id="@+id/iv_feed_detail_menu"
+        style="@style/iv_detail_menu"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_feed_detail_title"
+        app:layout_constraintBottom_toBottomOf="@id/tv_feed_detail_title"/>
+
+    <TextView
+        android:id="@+id/tv_feed_detail_content"
+        style="@style/text_detail_content"
+        android:layout_marginTop="0dp"
+        android:text="내용"
+        android:padding="6dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_feed_detail_title"/>
+
+    <LinearLayout
+        android:id="@+id/lay_feed_detail_like"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_feed_detail_content">
+        <ImageView
+            android:id="@+id/iv_feed_detail_like"
+            android:layout_width="21dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/like"
+            android:layout_gravity="center"/>
+        <TextView
+            android:id="@+id/tv_feed_detail_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12"
+            android:fontFamily="@font/notosanskr_medium"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_marginStart="6dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lay_feed_detail_menu"
+        style="@style/lay_detail_menu"
+        app:layout_constraintEnd_toEndOf="@id/iv_feed_detail_menu"
+        app:layout_constraintTop_toBottomOf="@id/iv_feed_detail_menu">
+        <TextView
+            android:id="@+id/tv_feed_detail_modify"
+            style="@style/text_detail_menu"
+            android:text="수정하기"
+            android:textColor="@color/black"/>
+        <View style="@style/line"/>
+        <TextView
+            android:id="@+id/tv_feed_detail_delete"
+            style="@style/text_detail_menu"
+            android:text="삭제하기"
+            android:textColor="@color/red"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

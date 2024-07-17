@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".feature.feed.CreateFeedFragment"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            style="@style/start_input_text"
+            android:text="제목"/>
+
+        <EditText
+            android:id="@+id/edit_create_title"
+            style="@style/edit_content"
+            android:layout_height="50dp"
+            android:hint="제목을 입력하세요"/>
+
+        <TextView
+            style="@style/start_input_text"
+            android:text="내용"
+            android:layout_marginTop="30dp"/>
+        <EditText
+            android:id="@+id/edit_create_content"
+            style="@style/edit_content"
+            android:hint="내용을 입력하세요"/>
+    </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_create"
+        style="@style/btn"
+        android:layout_width="match_parent"
+        android:text="작성 완료"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

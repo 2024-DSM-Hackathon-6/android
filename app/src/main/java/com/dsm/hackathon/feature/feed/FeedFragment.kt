@@ -12,6 +12,8 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.dsm.hackathon.R
 import com.dsm.hackathon.databinding.FragmentFeedBinding
+import com.dsm.hackathon.feature.DetailActivity
+import com.dsm.hackathon.feature.MainActivity
 import com.dsm.hackathon.feature.feed.model.FeedData
 import com.dsm.hackathon.feature.feed.model.FeedResponse
 import com.dsm.hackathon.network.ApiProvider
@@ -23,9 +25,9 @@ import retrofit2.Response
 
 class FeedFragment : Fragment(), FeedAdapter.FeedClickListener {
     private lateinit var binding: FragmentFeedBinding
-    private var orderSelect = "day"
+    private var orderSelect = "DATE"
     private val feedList = mutableListOf<FeedData>()
-    private val adapter = FeedAdapter(feedList)
+    private val adapter = FeedAdapter(feedList, this)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -44,27 +46,28 @@ class FeedFragment : Fragment(), FeedAdapter.FeedClickListener {
         binding.recyclerFeed.layoutManager = LinearLayoutManager(activity)
 
         getFeedInfo()
-        feedList.add(0, FeedData(0, "제목", "내용", "2024-07-17", "seoeun", 10, false, true))
         adapter.notifyDataSetChanged()
 
         binding.tvFeedDay.setOnClickListener {
-            Log.d("click", "날짜순 클릭")
-            if (orderSelect == "popular") {
+           if (orderSelect == "POPULAR") {
                 binding.tvFeedDay.background = orderSelected(binding.tvFeedDay)
                 binding.tvFeedPopular.background = orderUnselected(binding.tvFeedPopular)
-                orderSelect = "day"
+                orderSelect = "DATE"
                 getFeedInfo()
             }
         }
         binding.tvFeedPopular.setOnClickListener {
-            //Log.d("click", "인기순 클릭")
-            if (orderSelect == "day") {
+            if (orderSelect == "DATE") {
                 Log.d("click", "인기순 클릭")
                 binding.tvFeedPopular.background = orderSelected(binding.tvFeedPopular)
                 binding.tvFeedDay.background = orderUnselected(binding.tvFeedDay)
-                orderSelect = "popular"
+                orderSelect = "POPULAR"
                 getFeedInfo()
             }
+        }
+
+        binding.ivFeedCreate.setOnClickListener {
+            (activity as MainActivity).goDetailActivity(3, 0)
         }
     }
 
@@ -116,10 +119,45 @@ class FeedFragment : Fragment(), FeedAdapter.FeedClickListener {
     }
 
     override fun onFeedClicked(feedId: Long) {
-
+        (activity as MainActivity).goDetailActivity(4, feedId)
     }
 
     override fun onLikeClicked(feedId: Long, isLiked: Boolean) {
+        if (isLiked) {
+            feedLikeCancel(feedId)
+        } else {
+            feedLike(feedId)
+        }
+    }
 
+    private fun feedLike(feedId: Long) {
+        val apiProvider = ApiProvider.getInstance().create(FeedApi::class.java)
+        apiProvider.feedLike(feedId, userIdentifier).enqueue(object : Callback<Void> {
+            override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                if (response.isSuccessful) {
+                    Log.d("server", "좋아요 성공")
+                } else {
+                    Toast.makeText(activity, "실패하였습니다", Toast.LENGTH_SHORT).show()
+                }
+            }
+            override fun onFailure(call: Call<Void>, t: Throwable) {
+                Toast.makeText(activity, "서버 연동 실패", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+    private fun feedLikeCancel(feedId: Long) {
+        val apiProvider = ApiProvider.getInstance().create(FeedApi::class.java)
+        apiProvider.feedLikeCancel(feedId, userIdentifier).enqueue(object : Callback<Void> {
+            override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                if (response.isSuccessful) {
+                    Log.d("server", "좋아요 취소 성공")
+                } else {
+                    Toast.makeText(activity, "실패하였습니다", Toast.LENGTH_SHORT).show()
+                }
+            }
+            override fun onFailure(call: Call<Void>, t: Throwable) {
+                Toast.makeText(activity, "서버 연동 실패", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 }

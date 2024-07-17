@@ -6,8 +6,9 @@ import com.dsm.hackathon.databinding.ItemFeedRecyclerBinding
 import com.dsm.hackathon.feature.feed.model.FeedData
 
 class FeedViewHolder(private val binding: ItemFeedRecyclerBinding) : ViewHolder(binding.root) {
-    private val context = binding.root.context
+    val context = binding.root.context
     val like = binding.ivFeedItemLike
+    val count = binding.tvFeedItemCount
     fun bind(data: FeedData) {
         binding.tvFeedItemWriter.text = data.userName
         binding.tvFeedItemTitle.text = data.title

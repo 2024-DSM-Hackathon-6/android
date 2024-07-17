@@ -8,5 +8,5 @@ data class FeedData(
     val userName: String,
     val likeCount: Int,
     val isMine: Boolean,
-    val isLiked: Boolean
+    var isLiked: Boolean
 )

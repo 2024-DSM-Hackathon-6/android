@@ -17,7 +17,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setFrag(HomeFragment())
+        if (savedInstanceState == null) {
+            setFrag(HomeFragment())
+        }
 
         binding.bottomNavigationMain.setOnItemSelectedListener { item ->
             setFrag(
@@ -33,7 +35,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setFrag(fragment: Fragment) {
-        supportFragmentManager.beginTransaction().replace(R.id.frame_main, fragment).commit()
+        supportFragmentManager.beginTransaction().replace(R.id.frame_main, fragment).commitAllowingStateLoss()
     }
 
     fun goDetailActivity(index: Int, id: Long) {
