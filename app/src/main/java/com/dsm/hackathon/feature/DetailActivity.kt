@@ -1,8 +1,8 @@
 package com.dsm.hackathon.feature
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.dsm.hackathon.R
 import com.dsm.hackathon.databinding.ActivityDetailBinding
@@ -20,11 +20,10 @@ class DetailActivity() : AppCompatActivity() {
         val index = intent.getIntExtra("index", 0)
         val id = intent.getLongExtra("id", 0)
 
-        when(index) {
+        when (index) {
             1 -> setFrag(HomeDetailFragment(id))
             2 -> setFrag(DictionaryDetailFragment(id))
         }
-
 
         binding.ivDetailBack.setOnClickListener {
             finish()

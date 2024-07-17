@@ -23,7 +23,7 @@ import retrofit2.Response
 
 class FeedFragment : Fragment(), FeedAdapter.FeedClickListener {
     private lateinit var binding: FragmentFeedBinding
-    private var orderSelect = "DATE"
+    private var orderSelect = "day"
     private val feedList = mutableListOf<FeedData>()
     private val adapter = FeedAdapter(feedList)
     override fun onCreateView(
@@ -52,16 +52,17 @@ class FeedFragment : Fragment(), FeedAdapter.FeedClickListener {
             if (orderSelect == "popular") {
                 binding.tvFeedDay.background = orderSelected(binding.tvFeedDay)
                 binding.tvFeedPopular.background = orderUnselected(binding.tvFeedPopular)
-                orderSelect = "DATE"
+                orderSelect = "day"
                 getFeedInfo()
             }
         }
         binding.tvFeedPopular.setOnClickListener {
-            Log.d("click", "인기순 클릭")
+            //Log.d("click", "인기순 클릭")
             if (orderSelect == "day") {
+                Log.d("click", "인기순 클릭")
                 binding.tvFeedPopular.background = orderSelected(binding.tvFeedPopular)
                 binding.tvFeedDay.background = orderUnselected(binding.tvFeedDay)
-                orderSelect = "POPULAR"
+                orderSelect = "popular"
                 getFeedInfo()
             }
         }
