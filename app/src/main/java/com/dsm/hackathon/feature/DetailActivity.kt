@@ -21,11 +21,13 @@ class DetailActivity() : AppCompatActivity() {
 
         val index = intent.getIntExtra("index", 0)
         val id = intent.getLongExtra("id", 0)
+        val title = intent.getStringExtra("title") ?: ""
+        val content = intent.getStringExtra("content") ?: ""
 
         when (index) {
             1 -> setFrag(HomeDetailFragment(id))
             2 -> setFrag(DictionaryDetailFragment(id))
-            3 -> setFrag(CreateFeedFragment())
+            3 -> setFrag(CreateFeedFragment(id, title, content))
             4 -> setFrag(FeedDetailFragment(id))
             else -> Log.d("when", "else 실행")
         }

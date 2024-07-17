@@ -20,4 +20,7 @@ interface HomeApi {
 
     @POST("status/fix")
     fun requestModify(@Header("X-identifier") identifier: String, @Body request: ModifyRequest): Call<Void>
+
+    @POST("status/inquiry")
+    fun requestInquiry(@Header("X-identifier") identifier: String, @Body request: ModifyRequest): Call<Void>
 }

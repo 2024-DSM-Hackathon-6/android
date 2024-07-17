@@ -1,6 +1,7 @@
 package com.dsm.hackathon.feature.feed
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import com.dsm.hackathon.R
 import com.dsm.hackathon.databinding.FragmentFeedDetailBinding
+import com.dsm.hackathon.feature.DetailActivity
 import com.dsm.hackathon.feature.feed.model.FeedData
 import com.dsm.hackathon.network.ApiProvider
 import com.dsm.hackathon.network.FeedApi
@@ -20,6 +22,8 @@ class FeedDetailFragment(private val feedId: Long) : Fragment() {
     private lateinit var binding: FragmentFeedDetailBinding
     private var menuVisible = false
     private var isLiked = false
+
+    private val apiProvider = ApiProvider.getInstance().create(FeedApi::class.java)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -55,10 +59,15 @@ class FeedDetailFragment(private val feedId: Long) : Fragment() {
             }
             isLiked = !isLiked
         }
+        binding.tvFeedDetailDelete.setOnClickListener {
+            feedDelete()
+        }
+        binding.tvFeedDetailModify.setOnClickListener {
+            (activity as DetailActivity).setFrag(CreateFeedFragment(feedId, binding.tvFeedDetailTitle.text.toString(), binding.tvFeedDetailContent.text.toString()))
+        }
     }
 
     private fun getInfo() {
-        val apiProvider = ApiProvider.getInstance().create(FeedApi::class.java)
         apiProvider.getDetailFeed(feedId, userIdentifier).enqueue(object : Callback<FeedData> {
             override fun onResponse(call: Call<FeedData>, response: Response<FeedData>) {
                 if (response.isSuccessful) {
@@ -92,7 +101,6 @@ class FeedDetailFragment(private val feedId: Long) : Fragment() {
     }
 
     private fun cancelLike() {
-        val apiProvider = ApiProvider.getInstance().create(FeedApi::class.java)
         apiProvider.feedLikeCancel(feedId, userIdentifier).enqueue(object : Callback<Void> {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 if (response.isSuccessful) {
@@ -108,12 +116,28 @@ class FeedDetailFragment(private val feedId: Long) : Fragment() {
         })
     }
     private fun like() {
-        val apiProvider = ApiProvider.getInstance().create(FeedApi::class.java)
         apiProvider.feedLike(feedId, userIdentifier).enqueue(object : Callback<Void> {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 if (response.isSuccessful) {
                     context?.let { binding.ivFeedDetailLike.setColorFilter(it.getColor(R.color.main300)) }
                     binding.tvFeedDetailCount.text = (binding.tvFeedDetailCount.text.toString().toInt() + 1).toString()
+                }
+            }
+            override fun onFailure(call: Call<Void>, t: Throwable) {
+                Toast.makeText(activity, "서버 연동 실패", Toast.LENGTH_SHORT).show()
+            }
+        })
+    }
+
+    private fun feedDelete() {
+        apiProvider.deleteFeed(feedId, userIdentifier).enqueue(object : Callback<Void> {
+            override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                if (response.isSuccessful) {
+                    Toast.makeText(activity, "게시글이 삭제되었습니다", Toast.LENGTH_SHORT).show()
+                    (activity as DetailActivity).deleteActivity()
+                } else {
+                    Toast.makeText(activity, "게시글 삭제에 실패하였습니다", Toast.LENGTH_SHORT).show()
+                    Log.d("server", response.code().toString())
                 }
             }
             override fun onFailure(call: Call<Void>, t: Throwable) {

@@ -106,6 +106,7 @@ class HomeDetailFragment(private val infoId: Long) : Fragment(), CustomDialogInt
                     Toast.makeText(activity, "수정 요청이 전송되었습니다", Toast.LENGTH_SHORT).show()
                 } else {
                     Toast.makeText(activity, "수정 요청 전송에 실패하였습니다", Toast.LENGTH_SHORT).show()
+                    Log.d("server", response.code().toString())
                 }
             }
             override fun onFailure(call: Call<Void>, t: Throwable) {

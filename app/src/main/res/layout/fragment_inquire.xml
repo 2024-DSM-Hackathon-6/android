@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
-    android:padding="20dp"
     tools:context=".feature.home.InquireFragment"
     android:orientation="vertical">
 

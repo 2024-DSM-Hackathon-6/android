@@ -75,9 +75,7 @@ class DictionaryFragment : Fragment(), DictionaryAdapter.DictionaryClickListener
         })
     }
     private fun setDicInfo(responses: List<InfoData>) {
-        for (response in responses) {
-            dicList.add(response)
-        }
+        dicList.addAll(responses)
         adapter.notifyDataSetChanged()
     }
 

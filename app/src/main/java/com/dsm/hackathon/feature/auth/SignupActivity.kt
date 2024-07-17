@@ -3,6 +3,7 @@ package com.dsm.hackathon.feature.auth
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.dsm.hackathon.databinding.ActivitySignupBinding
 import com.dsm.hackathon.feature.auth.model.SignupRequest
@@ -55,6 +56,7 @@ class SignupActivity : AppCompatActivity() {
                     userIdentifier = response.body()?.userIdentifier ?: ""
                     Toast.makeText(this@SignupActivity, "회원가입이 완료되었습니다", Toast.LENGTH_SHORT).show()
                 } else {
+                    Log.d("server", response.code().toString())
                     Toast.makeText(this@SignupActivity, "회원가입에 실패하였습니다", Toast.LENGTH_SHORT).show()
                 }
                 val intent = Intent(this@SignupActivity, LoginActivity::class.java)

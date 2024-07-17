@@ -3,6 +3,7 @@ package com.dsm.hackathon.feature.auth
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.dsm.hackathon.feature.MainActivity
 import com.dsm.hackathon.databinding.ActivityLoginBinding
@@ -45,11 +46,13 @@ class LoginActivity : AppCompatActivity() {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 if (response.isSuccessful) {
                     userIdentifier = response.body()?.userIdentifier ?: ""
+                    Log.d("token", userIdentifier)
 
                     val intent = Intent(this@LoginActivity, MainActivity::class.java)
                     startActivity(intent)
                     finish()
                 } else {
+                    Log.d("server", response.code().toString())
                     Toast.makeText(this@LoginActivity, "아이디나 비밀번호를 확인해주세요", Toast.LENGTH_SHORT).show()
                 }
             }

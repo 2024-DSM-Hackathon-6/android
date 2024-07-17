@@ -13,21 +13,28 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
-    <androidx.appcompat.widget.AppCompatButton
+    <TextView
         android:id="@+id/tv_feed_day"
         style="@style/text_feed_select"
         android:text="날짜순"
         app:layout_constraintStart_toStartOf="@id/tv_feed_title"
         app:layout_constraintTop_toBottomOf="@id/tv_feed_title" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <TextView
         android:id="@+id/tv_feed_popular"
         style="@style/text_feed_select"
         android:text="인기순"
-        android:layout_marginStart="18dp"
+        android:layout_marginStart="10dp"
         app:layout_constraintStart_toEndOf="@id/tv_feed_day"
         app:layout_constraintTop_toTopOf="@id/tv_feed_day"
         app:layout_constraintBottom_toBottomOf="@id/tv_feed_day"/>
+
+    <ImageView
+        android:id="@+id/iv_feed_refresh"
+        style="@style/refresh"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/tv_feed_popular"
+        app:layout_constraintBottom_toBottomOf="@id/tv_feed_popular"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_feed"

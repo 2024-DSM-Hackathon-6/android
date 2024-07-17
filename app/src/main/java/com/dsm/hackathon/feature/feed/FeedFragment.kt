@@ -69,6 +69,10 @@ class FeedFragment : Fragment(), FeedAdapter.FeedClickListener {
         binding.ivFeedCreate.setOnClickListener {
             (activity as MainActivity).goDetailActivity(3, 0)
         }
+
+        binding.ivFeedRefresh.setOnClickListener {
+            getFeedInfo()
+        }
     }
 
     private fun orderSelected(textView: TextView): GradientDrawable {
@@ -112,9 +116,7 @@ class FeedFragment : Fragment(), FeedAdapter.FeedClickListener {
         })
     }
     private fun setFeedInfo(responses: List<FeedData>) {
-        for (response in responses) {
-            feedList.add(response)
-        }
+        feedList.addAll(responses)
         adapter.notifyDataSetChanged()
     }
 
@@ -122,7 +124,7 @@ class FeedFragment : Fragment(), FeedAdapter.FeedClickListener {
         (activity as MainActivity).goDetailActivity(4, feedId)
     }
 
-    override fun onLikeClicked(feedId: Long, isLiked: Boolean) {
+    /*override fun onLikeClicked(feedId: Long, isLiked: Boolean) {
         if (isLiked) {
             feedLikeCancel(feedId)
         } else {
@@ -159,5 +161,5 @@ class FeedFragment : Fragment(), FeedAdapter.FeedClickListener {
                 Toast.makeText(activity, "서버 연동 실패", Toast.LENGTH_SHORT).show()
             }
         })
-    }
+    }*/
 }

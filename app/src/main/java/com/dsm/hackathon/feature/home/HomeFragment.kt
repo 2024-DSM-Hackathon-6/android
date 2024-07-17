@@ -59,6 +59,7 @@ class HomeFragment : Fragment(), HomeAdapter.HomeClickListener {
     }
 
     private fun getInfo() {
+        homeList.clear()
         val apiProvider = ApiProvider.getInstance().create(HomeApi::class.java)
         apiProvider.getInfo(name).enqueue(object : Callback<InfoResponse> {
             override fun onResponse(call: Call<InfoResponse>, response: Response<InfoResponse>) {
@@ -79,10 +80,7 @@ class HomeFragment : Fragment(), HomeAdapter.HomeClickListener {
     }
 
     private fun setInfo(responses: List<InfoData>) {
-        homeList.clear()
-        for(res in responses) {
-            homeList.add(res)
-        }
+        homeList.addAll(responses)
         adapter.notifyDataSetChanged()
     }
 

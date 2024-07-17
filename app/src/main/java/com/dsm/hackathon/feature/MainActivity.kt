@@ -38,10 +38,12 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction().replace(R.id.frame_main, fragment).commitAllowingStateLoss()
     }
 
-    fun goDetailActivity(index: Int, id: Long) {
+    fun goDetailActivity(index: Int, id: Long, title: String = "", content: String = "") {
         val intent = Intent(this@MainActivity, DetailActivity::class.java).apply {
             putExtra("index", index)
             putExtra("id", id)
+            putExtra("title", title)
+            putExtra("content", content)
         }
         startActivity(intent)
     }

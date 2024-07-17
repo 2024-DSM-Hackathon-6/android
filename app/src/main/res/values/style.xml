@@ -44,6 +44,12 @@
         <item name="android:paddingEnd">12dp</item>
         <item name="android:layout_marginTop">10dp</item>
     </style>
+    <style name="refresh">
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">24dp</item>
+        <item name="android:src">@drawable/refresh_cycle</item>
+        <item name="android:layout_marginEnd">20dp</item>
+    </style>
 
     <style name="start_iv_logo">
         <item name="android:layout_width">100dp</item>
@@ -120,10 +126,10 @@
     </style>
 
     <style name="iv_detail_menu">
-        <item name="android:layout_width">8dp</item>
-        <item name="android:layout_height">20dp</item>
+        <item name="android:layout_width">24dp</item>
+        <item name="android:layout_height">34dp</item>
         <item name="android:src">@drawable/detail_menu</item>
-        <item name="android:layout_marginEnd">18dp</item>
+        <item name="android:padding">8dp</item>
     </style>
     <style name="text_detail_title" parent="head5">
         <item name="android:layout_width">match_parent</item>
@@ -134,7 +140,8 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginTop">20dp</item>
-        <item name="android:textSize">13sp</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:paddingStart">0dp</item>
     </style>
     <style name="lay_detail_menu">
         <item name="android:layout_width">wrap_content</item>
@@ -142,6 +149,7 @@
         <item name="android:background">@drawable/shadow_background</item>
         <item name="android:orientation">vertical</item>
         <item name="android:visibility">gone</item>
+        <item name="android:layout_marginTop">-4dp</item>
     </style>
     <style name="text_detail_menu" parent="caption2">
         <item name="android:layout_width">wrap_content</item>
@@ -175,10 +183,10 @@
         <item name="android:fontFamily">@font/notosanskr_medium</item>
         <item name="android:textSize">16sp</item>
         <item name="android:gravity">center</item>
-        <item name="android:paddingStart">10dp</item>
-        <item name="android:paddingEnd">10dp</item>
-        <item name="android:paddingTop">1dp</item>
-        <item name="android:paddingBottom">1dp</item>
+        <item name="android:paddingStart">12dp</item>
+        <item name="android:paddingEnd">12dp</item>
+        <item name="android:paddingTop">0dp</item>
+        <item name="android:paddingBottom">0dp</item>
         <item name="android:clickable">true</item>
         <item name="android:focusable">true</item>
     </style>

@@ -26,7 +26,7 @@
         android:id="@+id/tv_feed_detail_title"
         style="@style/text_detail_title"
         android:text="제목"
-        android:layout_marginTop="-16dp"
+        android:layout_marginTop="-12dp"
         app:layout_constraintStart_toStartOf="@id/tv_feed_detail_writer"
         app:layout_constraintTop_toBottomOf="@id/tv_feed_detail_writer"/>
     <ImageView
@@ -40,7 +40,7 @@
     <TextView
         android:id="@+id/tv_feed_detail_content"
         style="@style/text_detail_content"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="-6dp"
         android:text="내용"
         android:padding="6dp"
         app:layout_constraintStart_toStartOf="parent"

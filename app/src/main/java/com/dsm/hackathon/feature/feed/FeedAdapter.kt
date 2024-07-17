@@ -17,7 +17,7 @@ class FeedAdapter(private var feedList: List<FeedData>, private val feedClickLis
     override fun getItemCount(): Int = feedList.size
     override fun onBindViewHolder(holder: FeedViewHolder, position: Int) {
         holder.bind(feedList[position])
-        holder.like.setOnClickListener {
+        /*holder.like.setOnClickListener {
             feedList[position].isLiked = !feedList[position].isLiked
             if (feedList[position].isLiked) {
                 holder.like.setColorFilter(holder.context.getColor(R.color.main300))
@@ -27,7 +27,7 @@ class FeedAdapter(private var feedList: List<FeedData>, private val feedClickLis
                 holder.count.text = (holder.count.text.toString().toInt() - 1).toString()
             }
             feedClickListener.onLikeClicked(feedList[position].id, feedList[position].isLiked)
-        }
+        }*/
         holder.itemView.setOnClickListener {
             feedClickListener.onFeedClicked(feedList[position].id)
         }
@@ -35,6 +35,6 @@ class FeedAdapter(private var feedList: List<FeedData>, private val feedClickLis
 
     interface FeedClickListener {
         fun onFeedClicked(feedId: Long)
-        fun onLikeClicked(feedId: Long, isLiked: Boolean)
+        // fun onLikeClicked(feedId: Long, isLiked: Boolean)
     }
 }
