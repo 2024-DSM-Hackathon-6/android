@@ -21,6 +21,8 @@
         style="@style/bottom_navigation"
         app:itemBackground="@color/white"
         app:menu="@menu/bottom_menu"
+        app:itemTextColor="@drawable/menu_selector_color"
+        app:itemIconTint="@drawable/menu_selector_color"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
