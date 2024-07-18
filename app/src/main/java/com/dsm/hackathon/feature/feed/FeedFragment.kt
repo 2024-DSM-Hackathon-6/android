@@ -1,5 +1,6 @@
 package com.dsm.hackathon.feature.feed
 
+import android.content.Context
 import android.graphics.drawable.GradientDrawable
 import android.os.Bundle
 import android.util.Log
@@ -28,6 +29,8 @@ class FeedFragment : Fragment(), FeedAdapter.FeedClickListener {
     private var orderSelect = "DATE"
     private val feedList = mutableListOf<FeedData>()
     private val adapter = FeedAdapter(feedList, this)
+
+    private val apiProvider = ApiProvider.getInstance().create(FeedApi::class.java)
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -45,9 +48,6 @@ class FeedFragment : Fragment(), FeedAdapter.FeedClickListener {
         binding.recyclerFeed.adapter = adapter
         binding.recyclerFeed.layoutManager = LinearLayoutManager(activity)
 
-        getFeedInfo()
-        adapter.notifyDataSetChanged()
-
         binding.tvFeedDay.setOnClickListener {
            if (orderSelect == "POPULAR") {
                 binding.tvFeedDay.background = orderSelected(binding.tvFeedDay)
@@ -58,7 +58,6 @@ class FeedFragment : Fragment(), FeedAdapter.FeedClickListener {
         }
         binding.tvFeedPopular.setOnClickListener {
             if (orderSelect == "DATE") {
-                Log.d("click", "인기순 클릭")
                 binding.tvFeedPopular.background = orderSelected(binding.tvFeedPopular)
                 binding.tvFeedDay.background = orderUnselected(binding.tvFeedDay)
                 orderSelect = "POPULAR"
@@ -73,6 +72,11 @@ class FeedFragment : Fragment(), FeedAdapter.FeedClickListener {
         binding.ivFeedRefresh.setOnClickListener {
             getFeedInfo()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        getFeedInfo()
     }
 
     private fun orderSelected(textView: TextView): GradientDrawable {
@@ -99,11 +103,9 @@ class FeedFragment : Fragment(), FeedAdapter.FeedClickListener {
     }
     private fun getFeedInfo() {
         feedList.clear()
-        val apiProvider = ApiProvider.getInstance().create(FeedApi::class.java)
         apiProvider.getFeeds(orderSelect, userIdentifier).enqueue(object : Callback<FeedResponse> {
             override fun onResponse(call: Call<FeedResponse>, response: Response<FeedResponse>) {
                 if (response.isSuccessful) {
-                    Log.d("server", response.body().toString())
                     response.body()?.let { setFeedInfo(it.feedElements) }
                 } else {
                     Toast.makeText(activity, "게시글 정보를 가져오는데 실패하였습니다", Toast.LENGTH_SHORT).show()
@@ -124,7 +126,7 @@ class FeedFragment : Fragment(), FeedAdapter.FeedClickListener {
         (activity as MainActivity).goDetailActivity(4, feedId)
     }
 
-    /*override fun onLikeClicked(feedId: Long, isLiked: Boolean) {
+    override fun onLikeClicked(feedId: Long, isLiked: Boolean) {
         if (isLiked) {
             feedLikeCancel(feedId)
         } else {
@@ -133,13 +135,13 @@ class FeedFragment : Fragment(), FeedAdapter.FeedClickListener {
     }
 
     private fun feedLike(feedId: Long) {
-        val apiProvider = ApiProvider.getInstance().create(FeedApi::class.java)
         apiProvider.feedLike(feedId, userIdentifier).enqueue(object : Callback<Void> {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 if (response.isSuccessful) {
                     Log.d("server", "좋아요 성공")
                 } else {
                     Toast.makeText(activity, "실패하였습니다", Toast.LENGTH_SHORT).show()
+                    Log.d("server", response.code().toString())
                 }
             }
             override fun onFailure(call: Call<Void>, t: Throwable) {
@@ -148,7 +150,6 @@ class FeedFragment : Fragment(), FeedAdapter.FeedClickListener {
         })
     }
     private fun feedLikeCancel(feedId: Long) {
-        val apiProvider = ApiProvider.getInstance().create(FeedApi::class.java)
         apiProvider.feedLikeCancel(feedId, userIdentifier).enqueue(object : Callback<Void> {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 if (response.isSuccessful) {
@@ -161,5 +162,5 @@ class FeedFragment : Fragment(), FeedAdapter.FeedClickListener {
                 Toast.makeText(activity, "서버 연동 실패", Toast.LENGTH_SHORT).show()
             }
         })
-    }*/
+    }
 }
