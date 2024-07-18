@@ -45,7 +45,7 @@ class InquireFragment(private val data: InfoData) : Fragment() {
         apiProvider.requestInquiry(userIdentifier, ModifyRequest(data.id, content)).enqueue(object : Callback<Void> {
             override fun onResponse(call: Call<Void>, response: Response<Void>) {
                 if (response.isSuccessful) {
-                    Toast.makeText(activity, "전성에 성공하였습니다", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(activity, "전송에 성공하였습니다", Toast.LENGTH_SHORT).show()
                     (activity as DetailActivity).setFrag(HomeDetailFragment(data.id))
                 } else {
                     Log.d("server", response.code().toString())
